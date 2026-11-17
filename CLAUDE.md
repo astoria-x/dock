@@ -41,4 +41,4 @@ CSS load order: `variables.css` > `reset.css` > `base.css` (set by enqueue depen
 - Test with Dock active and no plugins: no PHP notices, no console errors, no unexpected CSS or JS in the page source.
 
 ## Open decisions (do not decide in code)
-- Hybrid theme (block template parts). Michael's call.
+- Hybrid theme (block template parts). Michael chose 2026-11-17: classic for v1, decide in v1.1.
