@@ -1,0 +1,101 @@
+/**
+ * Dock design tokens.
+ *
+ * Every color, size and space in Dock comes from here. Child themes restyle a
+ * site by overriding these custom properties, not by writing new one-off CSS.
+ *
+ * Units: rem only (1rem = 10px because reset.css sets html to 62.5%).
+ * Line heights and ratios are unitless.
+ *
+ * @package Dock
+ * @since   1.0.0
+ */
+
+:root {
+	/* -------------------------------------------------------------------------
+	 * Color: palette
+	 * ---------------------------------------------------------------------- */
+	--color-neutral-0: #ffffff;
+	--color-neutral-100: #f4f5f7;
+	--color-neutral-300: #d4d7dd;
+	--color-neutral-600: #5b6170;
+	--color-neutral-900: #14171f;
+
+	--color-primary-500: #1f4fd1;
+	--color-primary-700: #163a9c;
+	--color-accent-500: #e8590c;
+
+	/* -------------------------------------------------------------------------
+	 * Color: roles (use these in components, not the palette above)
+	 * Text, muted text and link colors pass WCAG AA (4.5:1+) on bg and surface.
+	 * Accent is decorative only (3.3:1 on white): never use it for body text.
+	 * ---------------------------------------------------------------------- */
+	--color-bg: var(--color-neutral-0);
+	--color-surface: var(--color-neutral-100);
+	--color-text: var(--color-neutral-900);
+	--color-text-muted: var(--color-neutral-600);
+	--color-border: var(--color-neutral-300);
+	--color-link: var(--color-primary-500);
+	--color-link-hover: var(--color-primary-700);
+	--color-accent: var(--color-accent-500);
+	--color-focus: var(--color-primary-500);
+
+	/* -------------------------------------------------------------------------
+	 * Typography: families
+	 * System stacks: zero font downloads in v1.
+	 * ---------------------------------------------------------------------- */
+	--font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-heading: var(--font-body);
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+	/* -------------------------------------------------------------------------
+	 * Typography: scale (about 1.25 ratio from a 1.6rem base)
+	 * ---------------------------------------------------------------------- */
+	--font-size-xs: 1.2rem;
+	--font-size-sm: 1.4rem;
+	--font-size-base: 1.6rem;
+	--font-size-md: 2rem;
+	--font-size-lg: 2.4rem;
+	--font-size-xl: 3rem;
+	--font-size-2xl: 3.8rem;
+	--font-size-3xl: 4.8rem;
+
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+
+	--line-height-tight: 1.15;
+	--line-height-base: 1.6;
+
+	/* -------------------------------------------------------------------------
+	 * Spacing scale
+	 * ---------------------------------------------------------------------- */
+	--space-3xs: 0.4rem;
+	--space-2xs: 0.8rem;
+	--space-xs: 1.2rem;
+	--space-sm: 1.6rem;
+	--space-md: 2.4rem;
+	--space-lg: 3.2rem;
+	--space-xl: 4.8rem;
+	--space-2xl: 6.4rem;
+	--space-3xl: 9.6rem;
+
+	/* Default gap between siblings inside a .flow container. */
+	--flow-space: var(--space-sm);
+
+	/* -------------------------------------------------------------------------
+	 * Layout
+	 * ---------------------------------------------------------------------- */
+	--container-max: 120rem;
+	--container-wide: 140rem;
+	--measure: 72rem;
+	--gutter: var(--space-sm);
+
+	/* -------------------------------------------------------------------------
+	 * Borders, radius, focus
+	 * ---------------------------------------------------------------------- */
+	--border-width: 0.1rem;
+	--radius-sm: 0.4rem;
+	--radius-md: 0.8rem;
+	--focus-width: 0.3rem;
+	--focus-offset: 0.3rem;
+}

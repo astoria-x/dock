@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Dependencies and tooling (Dock ships none; keep them out if added locally)
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+
+# Logs and env
+*.log
+.env
+.env.*
+
+# Release archives
+*.zip

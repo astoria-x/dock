@@ -1,0 +1,23 @@
+/*
+Theme Name:        Dock
+Theme URI:         https://bigidea.media/
+Author:            Big Idea Media
+Author URI:        https://bigidea.media/
+Description:       Dock is the Astoria.X parent theme by Big Idea Media. A slim, builder-free classic PHP theme with a variable-based CSS system. Gutenberg is used for editing content only. Every Big Idea Media child theme plugs into Dock.
+Version:           1.0.0
+Requires at least: 6.5
+Tested up to:      6.9
+Requires PHP:      8.1
+License:           GNU General Public License v2 or later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       dock
+Tags:              accessibility-ready, custom-menu, featured-images, editor-style
+*/
+
+/*
+ * This file holds the theme header only. WordPress reads it to identify the theme.
+ * Styles live in assets/css and load in this order:
+ *   1. variables.css  design tokens (CSS custom properties)
+ *   2. reset.css      Andy Bell's modern CSS reset + 62.5% root
+ *   3. base.css       minimal base styles and reusable classes
+ */
