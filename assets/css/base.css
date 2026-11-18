@@ -61,7 +61,7 @@ pre {
 
 a {
 	color: var(--color-link);
-	text-underline-offset: 0.2rem;
+	text-underline-offset: var(--underline-offset);
 }
 
 a:hover {
@@ -86,7 +86,7 @@ pre {
 blockquote {
 	margin-inline: 0;
 	padding-inline-start: var(--space-md);
-	border-inline-start: var(--focus-width) solid var(--color-border);
+	border-inline-start: var(--border-width-thick) solid var(--color-border);
 }
 
 hr {
@@ -103,7 +103,7 @@ input,
 select,
 textarea {
 	padding: var(--space-2xs) var(--space-xs);
-	border: var(--border-width) solid var(--color-neutral-600);
+	border: var(--border-width) solid var(--color-input-border);
 	border-radius: var(--radius-sm);
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -116,7 +116,7 @@ input[type="button"] {
 	border: var(--border-width) solid var(--color-link);
 	border-radius: var(--radius-sm);
 	background-color: var(--color-link);
-	color: var(--color-neutral-0);
+	color: var(--color-on-link);
 	cursor: pointer;
 }
 
@@ -142,7 +142,8 @@ input[type="button"]:hover {
 	outline: none;
 }
 
-/* Hide visually, keep available to screen readers (WordPress core class). */
+/* Hide visually, keep available to screen readers (WordPress core class).
+ * The 0.1rem values are the standard 1px clip pattern, not design sizes. */
 .screen-reader-text {
 	border: 0;
 	clip-path: inset(50%);
