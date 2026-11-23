@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DOCK_VERSION', '1.0.1' );
+define( 'DOCK_VERSION', '1.1.0' );
 
 /*
  * -----------------------------------------------------------------------------
@@ -246,4 +246,15 @@ if ( ! function_exists( 'dock_posted_on' ) ) {
 			esc_html( get_the_date() )
 		);
 	}
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * Plugin support
+ * -----------------------------------------------------------------------------
+ */
+
+// WooCommerce: theme support, Dock layout and shop CSS. Loads only when WooCommerce is active.
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
 }

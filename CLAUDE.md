@@ -27,8 +27,14 @@ Dock is the Astoria.X parent theme by Big Idea Media. Every Big Idea Media child
 | `assets/css/variables.css` | Design tokens. |
 | `assets/css/reset.css` | Andy Bell's modern reset + 62.5% root. |
 | `assets/css/base.css` | Element defaults and reusable classes. |
+| `inc/woocommerce.php` | WooCommerce support, shop layout wrapper, shop-only CSS loading. Loaded only when WooCommerce is active. |
+| `assets/css/woocommerce.css` | WooCommerce colors mapped to role tokens, shop components. Shop pages only. |
 
-CSS load order: `variables.css` > `reset.css` > `base.css` (set by enqueue dependencies).
+CSS load order: `variables.css` > `reset.css` > `base.css` (set by enqueue dependencies). On shop pages: WooCommerce's CSS > `woocommerce.css`.
+
+## Post types and WooCommerce
+- Blog posts and any custom post type use `single.php` and `archive.php`. A child adds `single-{type}.php` or `archive-{type}.php` only when a post type needs its own layout.
+- WooCommerce: style the store through tokens first. To change a WooCommerce template, copy it into the child theme's `woocommerce/` folder. Never load shop CSS on every page.
 
 ## Versioning
 - Semantic versioning. Any change that ships in the theme folder (code, CSS, screenshot) is at least a patch bump.

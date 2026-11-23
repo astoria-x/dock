@@ -1,0 +1,176 @@
+/**
+ * Dock shop styles (WooCommerce).
+ *
+ * Loads only on shop pages, after WooCommerce's own CSS. WooCommerce colors are
+ * mapped to Dock's role tokens, so a child theme's brand tokens restyle the store
+ * with no extra CSS. Same rules as base.css: rem only, tokens only.
+ *
+ * Sections:
+ *   1. WooCommerce color variables mapped to Dock roles
+ *   2. Buttons, prices and badges
+ *   3. Notices
+ *   4. Product grid and forms
+ *
+ * @package Dock
+ * @since   1.1.0
+ */
+
+/* =============================================================================
+ * 1. WooCommerce variables mapped to Dock roles
+ * ========================================================================== */
+
+:root {
+	--woocommerce: var(--color-link);
+	--wc-primary: var(--color-link);
+	--wc-primary-text: var(--color-on-link);
+	--wc-secondary: var(--color-surface);
+	--wc-secondary-text: var(--color-text);
+	--wc-highlight: var(--color-sale);
+	--wc-highligh-text: var(--color-on-link); /* WooCommerce's own spelling. */
+	--wc-highlight-text: var(--color-on-link);
+	--wc-content-bg: var(--color-bg);
+	--wc-subtext: var(--color-text-muted);
+	--wc-form-border-color: var(--color-input-border);
+	--wc-form-border-radius: var(--radius-sm);
+	--wc-form-border-width: var(--border-width);
+	--wc-red: var(--color-error);
+	--wc-green: var(--color-success);
+	--wc-blue: var(--color-link);
+}
+
+/* =============================================================================
+ * 2. Buttons, prices and badges
+ * ========================================================================== */
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce-page a.button,
+.woocommerce-page button.button {
+	padding: var(--space-2xs) var(--space-sm);
+	border: var(--border-width) solid var(--color-link);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-link);
+	color: var(--color-on-link);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-base);
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover {
+	border-color: var(--color-link-hover);
+	background-color: var(--color-link-hover);
+	color: var(--color-on-link);
+}
+
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+	border-color: var(--color-link);
+	background-color: var(--color-link);
+	color: var(--color-on-link);
+}
+
+.woocommerce .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.woocommerce ul.products li.product .price {
+	color: var(--color-text);
+	font-size: var(--font-size-md);
+}
+
+.woocommerce .price del {
+	color: var(--color-text-muted);
+}
+
+.woocommerce .price ins {
+	text-decoration: none;
+}
+
+.woocommerce span.onsale {
+	min-width: auto;
+	min-height: auto;
+	padding: var(--space-3xs) var(--space-2xs);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-sale);
+	color: var(--color-on-link);
+	font-size: var(--font-size-sm);
+	line-height: var(--line-height-base);
+}
+
+.woocommerce .star-rating,
+.woocommerce p.stars a {
+	color: var(--color-text);
+}
+
+/* =============================================================================
+ * 3. Notices
+ * ========================================================================== */
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-noreviews,
+p.no-comments {
+	border-top-width: var(--border-width-thick);
+	background-color: var(--color-surface);
+	color: var(--color-text);
+}
+
+.woocommerce-message {
+	border-top-color: var(--color-success);
+}
+
+.woocommerce-message::before {
+	color: var(--color-success);
+}
+
+.woocommerce-info {
+	border-top-color: var(--color-link);
+}
+
+.woocommerce-info::before {
+	color: var(--color-link);
+}
+
+.woocommerce-error {
+	border-top-color: var(--color-error);
+}
+
+.woocommerce-error::before {
+	color: var(--color-error);
+}
+
+/* =============================================================================
+ * 4. Product grid and forms
+ * ========================================================================== */
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce div.product .product_title {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-tight);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+	font-size: var(--font-size-md);
+}
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select {
+	padding: var(--space-2xs) var(--space-xs);
+	border: var(--border-width) solid var(--color-input-border);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-bg);
+	color: var(--color-text);
+}
+
+.woocommerce form .form-row .required {
+	color: var(--color-error);
+}

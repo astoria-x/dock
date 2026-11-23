@@ -9,6 +9,8 @@ The Astoria.X parent theme by Big Idea Media. Slim, builder-free, classic PHP. G
 - A variable-based CSS system in rem (`1rem = 10px`), built on Andy Bell's modern CSS reset.
 - Accessibility basics: skip link, `.screen-reader-text`, visible focus styles, semantic landmarks.
 - Lean front end: no JavaScript, no emoji scripts, core block CSS only for blocks on the page.
+- Works with any post type: blog posts and custom post types use the Single and Archive templates.
+- WooCommerce ready: shop pages use Dock's layout and tokens; shop CSS loads only on shop pages.
 - Theme supports: title tag, featured images, HTML5 markup, primary and footer menus, editor styles, responsive embeds.
 
 ## What's not inside (on purpose)
