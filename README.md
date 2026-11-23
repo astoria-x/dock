@@ -2,7 +2,7 @@
 
 The Astoria.X parent theme by Big Idea Media. Slim, builder-free, classic PHP. Gutenberg edits content; PHP templates handle layout.
 
-**Version:** 1.0.0 · **Requires:** WordPress 6.5+, PHP 8.1+ · **License:** GPL-2.0-or-later
+**Version:** see `Version` in [style.css](style.css) and [CHANGELOG.md](CHANGELOG.md) · **Requires:** WordPress 6.5+, PHP 8.1+ · **License:** GPL-2.0-or-later
 
 ## What's inside
 - Classic templates: `index`, `page`, `single`, `archive`, `search`, `404`, plus `header` and `footer`.
