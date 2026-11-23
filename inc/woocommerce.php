@@ -4,7 +4,7 @@
  *
  * Loaded by functions.php only when WooCommerce is active. Declares theme support,
  * puts shop pages inside Dock's own layout (one <main>, no sidebar), and loads
- * shop CSS only on pages that need it. Shop colors come from Dock's role tokens,
+ * shop CSS and cart scripts only on pages that need them. Shop colors come from Dock's role tokens,
  * so a child theme restyles the store by changing tokens, like the rest of the site.
  *
  * To change a WooCommerce template, copy it into the child theme's woocommerce/ folder.
@@ -161,3 +161,36 @@ function dock_woocommerce_enqueue_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'dock_woocommerce_enqueue_assets', 15 );
+
+/**
+ * Keep WooCommerce's shop scripts off pages that show no shop output.
+ *
+ * WooCommerce loads jQuery and its cart scripts on every page. Off shop pages Dock
+ * dequeues them; order attribution (marketing source tracking) is left alone, and any
+ * script another enqueued script depends on still loads. Filter the handles with
+ * dock_woocommerce_shop_scripts.
+ *
+ * @since 1.1.0
+ * @return void
+ */
+function dock_woocommerce_limit_scripts() {
+	if ( dock_woocommerce_needs_styles() ) {
+		return;
+	}
+
+	/**
+	 * Filter the WooCommerce script handles Dock removes from non-shop pages.
+	 *
+	 * @since 1.1.0
+	 * @param string[] $handles Script handles.
+	 */
+	$handles = (array) apply_filters(
+		'dock_woocommerce_shop_scripts',
+		array( 'wc-add-to-cart', 'woocommerce', 'wc-cart-fragments', 'jquery-blockui', 'wc-jquery-blockui', 'js-cookie', 'wc-js-cookie' )
+	);
+
+	foreach ( $handles as $handle ) {
+		wp_dequeue_script( $handle );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'dock_woocommerce_limit_scripts', 100 );

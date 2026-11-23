@@ -5,6 +5,7 @@ All notable changes to Dock. Newest first. Versions follow semantic versioning; 
 ## 1.1.0 (2026-11-23)
 - Added: WooCommerce support (`inc/woocommerce.php`, loaded only when WooCommerce is active). Declares theme support and the product gallery zoom, lightbox and slider. Shop pages render inside Dock's layout (`.container.flow.dock-shop`, one `<main>`, no sidebar).
 - Added: `assets/css/woocommerce.css` maps WooCommerce's color variables to Dock role tokens and styles buttons, prices, sale badges, notices and forms. It loads, with WooCommerce's own CSS, only on shop, cart, checkout and account pages and on pages that use a WooCommerce shortcode. Filter: `dock_woocommerce_load_styles`.
+- Added: WooCommerce's cart scripts (and the jQuery they pull in) stay off non-shop pages. Order attribution keeps running. Filter: `dock_woocommerce_shop_scripts`.
 - Added: `--color-success`, `--color-error` and `--color-sale` role tokens (all pass WCAG AA).
 - Changed: `single.php` shows the post date on blog posts only, so custom post types get a clean single view.
 
