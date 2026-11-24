@@ -21,7 +21,9 @@ get_header();
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry flow' ); ?>>
 			<header class="entry-header flow">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-				<p class="entry-meta"><?php dock_posted_on(); ?></p>
+				<?php if ( 'post' === get_post_type() ) : ?>
+					<p class="entry-meta"><?php dock_posted_on(); ?></p>
+				<?php endif; ?>
 			</header>
 
 			<?php if ( has_post_thumbnail() ) : ?>

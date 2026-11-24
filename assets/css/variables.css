@@ -24,6 +24,8 @@
 	--color-primary-500: #1f4fd1;
 	--color-primary-700: #163a9c;
 	--color-accent-500: #e8590c;
+	--color-success-700: #1e7b34;
+	--color-error-700: #b42318;
 
 	/* -------------------------------------------------------------------------
 	 * Color: roles (use these in components, not the palette above)
@@ -41,6 +43,9 @@
 	--color-focus: var(--color-primary-500);
 	--color-on-link: var(--color-neutral-0);      /* text on link-colored fills, e.g. buttons */
 	--color-input-border: var(--color-neutral-600); /* 6.2:1 on bg, passes the 3:1 non-text rule */
+	--color-success: var(--color-success-700);      /* 5.3:1 on bg: confirmations */
+	--color-error: var(--color-error-700);          /* 6.5:1 on bg: errors, required marks */
+	--color-sale: var(--color-error-700);           /* sale badges; white text on it passes AA */
 
 	/* -------------------------------------------------------------------------
 	 * Typography: families
