@@ -2,6 +2,10 @@
 
 All notable changes to Dock. Newest first. Versions follow semantic versioning; the current number is `Version` in `style.css`.
 
+## 1.2.0 (2026-11-25)
+- Added: automatic theme updates from GitHub (`inc/updater.php`). WordPress's own update check reads the version on Dock's `main` branch; newer versions show on Dashboard > Updates and Appearance > Themes, and the automatic-updates toggle works. Dock is kept out of WordPress.org's update check so a same-named theme there can never replace it. Source filter: `dock_update_source`. No requests on front-end page views.
+- Added: `Update URI` header in `style.css`.
+
 ## 1.1.1 (2026-11-25)
 Editor fixes found on the ORX site (WordPress 7.1.5, WooCommerce 11.3.1). No front-end change.
 - Fixed: WooCommerce products opened in the classic editor. Every post type with `show_in_rest` and editor support now uses the block editor; WooCommerce's Product data box still shows as a panel. A child can opt a post type out with the `dock_use_block_editor` filter.
