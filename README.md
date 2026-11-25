@@ -23,6 +23,9 @@ No page builder, build step, framework, jQuery, widgets, customizer options or b
 3. Assign menus under **Appearance > Menus** to *Primary menu* and *Footer menu*.
 4. Check: open a post, a page and (on store sites) a product. All three should open in the block editor.
 
+## Updates
+Dock updates itself like any other theme. New versions on GitHub show on **Dashboard > Updates** and **Appearance > Themes**; click Update, or turn on automatic updates for Dock on the Themes screen.
+
 Client sites should run a child theme of Dock rather than Dock itself, so updates to Dock never overwrite client work.
 
 ## Customizing

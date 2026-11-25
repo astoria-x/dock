@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DOCK_VERSION', '1.1.1' );
+define( 'DOCK_VERSION', '1.2.0' );
 
 /*
  * -----------------------------------------------------------------------------
@@ -309,6 +309,15 @@ if ( ! function_exists( 'dock_posted_on' ) ) {
 		);
 	}
 }
+
+/*
+ * -----------------------------------------------------------------------------
+ * Updates
+ * -----------------------------------------------------------------------------
+ */
+
+// Theme updates from GitHub. Runs only during WordPress's own update checks, never on page views.
+require get_template_directory() . '/inc/updater.php';
 
 /*
  * -----------------------------------------------------------------------------

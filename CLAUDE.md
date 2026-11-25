@@ -27,6 +27,7 @@ Dock is the Astoria.X parent theme by Big Idea Media. Every Big Idea Media child
 | `assets/css/variables.css` | Design tokens. |
 | `assets/css/reset.css` | Andy Bell's modern reset + 62.5% root. |
 | `assets/css/base.css` | Element defaults and reusable classes. |
+| `inc/updater.php` | Theme updates from the public GitHub repo's `main` branch. Runs only in WordPress's update checks. |
 | `inc/woocommerce.php` | WooCommerce support, shop layout wrapper, shop-only CSS loading. Loaded only when WooCommerce is active. |
 | `assets/css/woocommerce.css` | WooCommerce colors mapped to role tokens, shop components. Shop pages only. |
 
@@ -39,15 +40,15 @@ CSS load order: `variables.css` > `reset.css` > `base.css` (set by enqueue depen
 ## Versioning
 - Semantic versioning. Any change that ships in the theme folder (code, CSS, screenshot) is at least a patch bump.
 - The version number lives in exactly two places: `Version` in `style.css` and `DOCK_VERSION` in `functions.php` (it busts the CSS cache). Nothing else carries the number: not the README, not `screenshot.png`, not comments. The README points to `style.css` and `CHANGELOG.md`.
-- One topic per branch and pull request. `main` is always installable.
+- One topic per branch and pull request. `main` is always installable: every site updates from it, and a version bump merged to `main` is offered to every Dock site.
 
 ## Release checklist (every version bump, all in the same pull request)
 1. `style.css` `Version` and `functions.php` `DOCK_VERSION` set to the new number.
 2. `CHANGELOG.md`: a new entry at the top with the version, the date and what changed.
 3. `screenshot.png` (1200 × 900) is current and shows no version number.
 4. Version check: `grep -rnE '[0-9]+\.[0-9]+\.[0-9]+' --include='*.php' --include='*.css' --include='*.md' .` shows the old number nowhere except `@since` tags (they record when code was added and never change), older `CHANGELOG.md` entries and "Requires" lines.
-5. After merge: tag the merge commit `vX.Y.Z`, build `dock-X.Y.Z.zip` from that tag (folder `dock/` at the zip root, no `.git`), put it in the project files, and delete the previous zip there.
-6. Update the theme on the test site and any live sites, then confirm the Themes screen shows the new version.
+5. After merge: tag the merge commit `vX.Y.Z`, build `dock-X.Y.Z.zip` from that tag (folder `dock/` at the zip root, no `.git`), put it in the project files, and delete the previous zip there. The zip is for new installs; existing sites update themselves.
+6. Update the test site first (Dashboard > Updates > Check again), run the install check, then update live sites. Confirm the Themes screen shows the new version. Automatic updates stay off on live client sites until Michael decides otherwise.
 7. Run the new-site install check below on the test site.
 
 ## New-site install check (every new site and every Dock update)
