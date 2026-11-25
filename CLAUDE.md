@@ -20,7 +20,7 @@ Dock is the Astoria.X parent theme by Big Idea Media. Every Big Idea Media child
 | File | Purpose |
 | --- | --- |
 | `style.css` | Theme header only (name, version, author). No styles. |
-| `functions.php` | Theme supports, menus, enqueue, block CSS on demand, cleanup. |
+| `functions.php` | Theme supports, menus, enqueue, block editor for every post type, editor root size, block CSS on demand, cleanup. |
 | `header.php` / `footer.php` | Document shell, skip link, site header/footer, menus. |
 | `index.php` | Fallback template and blog index. |
 | `page.php`, `single.php`, `archive.php`, `search.php`, `404.php` | Standard templates. |
@@ -48,6 +48,12 @@ CSS load order: `variables.css` > `reset.css` > `base.css` (set by enqueue depen
 4. Version check: `grep -rnE '[0-9]+\.[0-9]+\.[0-9]+' --include='*.php' --include='*.css' --include='*.md' .` shows the old number nowhere except `@since` tags (they record when code was added and never change), older `CHANGELOG.md` entries and "Requires" lines.
 5. After merge: tag the merge commit `vX.Y.Z`, build `dock-X.Y.Z.zip` from that tag (folder `dock/` at the zip root, no `.git`), put it in the project files, and delete the previous zip there.
 6. Update the theme on the test site and any live sites, then confirm the Themes screen shows the new version.
+7. Run the new-site install check below on the test site.
+
+## New-site install check (every new site and every Dock update)
+- Open a post, a page and (on WooCommerce sites) a product in wp-admin. All three open in the block editor, never the classic editor.
+- Editor text is the same size as on the front end.
+- The front end shows no PHP notices and no unexpected CSS or JS.
 
 ## Before every merge
 - `php -l` on every PHP file.
