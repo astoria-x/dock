@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DOCK_VERSION', '1.1.0' );
+define( 'DOCK_VERSION', '1.1.1' );
 
 /*
  * -----------------------------------------------------------------------------
@@ -122,6 +122,68 @@ function dock_editor_root_font_size() {
 	wp_add_inline_style( 'dock-editor-root', ':root:has(> body.editor-styles-wrapper){font-size:62.5%}' );
 }
 add_action( 'enqueue_block_assets', 'dock_editor_root_font_size' );
+
+/*
+ * -----------------------------------------------------------------------------
+ * Editor: block editor everywhere
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Use the block editor for every post type that supports it.
+ *
+ * Some plugins switch the block editor off for their post types (WooCommerce does
+ * for products), which sends editors to the classic editor. Dock edits all content
+ * in the block editor: any post type with show_in_rest and the editor feature gets it.
+ * Meta boxes such as WooCommerce's Product data still show, as panels under the content.
+ * A child theme can keep the classic editor for a post type with the
+ * dock_use_block_editor filter.
+ *
+ * @since 1.1.1
+ * @param bool   $use_block_editor Whether the post type uses the block editor.
+ * @param string $post_type        Post type name.
+ * @return bool
+ */
+function dock_use_block_editor_for_post_type( $use_block_editor, $post_type ) {
+	$object = get_post_type_object( $post_type );
+
+	if ( $object && $object->show_in_rest && post_type_supports( $post_type, 'editor' ) ) {
+		$use_block_editor = true;
+	}
+
+	/**
+	 * Filter whether Dock turns the block editor on for a post type.
+	 *
+	 * @since 1.1.1
+	 * @param bool   $use_block_editor Whether the post type uses the block editor.
+	 * @param string $post_type        Post type name.
+	 */
+	return (bool) apply_filters( 'dock_use_block_editor', $use_block_editor, $post_type );
+}
+add_filter( 'use_block_editor_for_post_type', 'dock_use_block_editor_for_post_type', 100, 2 );
+
+/**
+ * Give the classic editor the same 10px root as the front end.
+ *
+ * The add_editor_style() call loads Dock's rem-based CSS into the classic (TinyMCE)
+ * editor too, but its root stays at 16px, so every size would show 1.6 times too big. The rule is
+ * added to TinyMCE only: a plain html rule in the editor stylesheets would also reach
+ * the block editor, which rewrites html to .editor-styles-wrapper.
+ *
+ * @since 1.1.1
+ * @param array $settings TinyMCE settings.
+ * @return array
+ */
+function dock_classic_editor_root_font_size( $settings ) {
+	$rule = 'html{font-size:62.5%}';
+
+	$settings['content_style'] = empty( $settings['content_style'] )
+		? $rule
+		: $settings['content_style'] . ' ' . $rule;
+
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'dock_classic_editor_root_font_size' );
 
 /*
  * -----------------------------------------------------------------------------
